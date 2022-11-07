@@ -46,6 +46,56 @@ h1 {
     max-width: 570px;
 }
 
+#main form {
+    background-image: url('./images/bg-boost-desktop.svg');
+    background-size: contain;
+    background-color: #3b3054;
+    padding: 40px 20px;
+    width: 95vw;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    max-width: 950px;
+}
+
+#main, #stats {
+    background-color: #bfbfbf;
+    margin: auto;
+}
+
+#input {
+    width: 70%;
+}
+
+#button {
+    background-color: #2acfcf;
+    color: #fff;
+    width: 23%;
+}
+
+.display_content {
+    background-color: #fff;
+    width: 90vw;
+    margin: auto;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.display_content span {
+    color: #2acfcf;
+}
+
+#shortened {
+    padding-bottom: 10px;
+}
+
+#shortened button {
+    background-color: #2acfcf;
+    color: #fff;
+    width: 15%;
+}
+
 
 /*Mobile Viewport Styling*/
 @media screen and (max-width: 576px) {
@@ -78,8 +128,23 @@ h1 {
     #header-content {
         text-align: center;
     }
+
+    #main form {
+        display: block;
+        padding: 20px;
+    }
+
+    #input {
+        width: 100%;
+    }
+
+    #button {
+        margin-top: 15px;
+        width: 100%;
+    }
 }
 
+/*Making header responsive*/
 @media screen and (max-width: 1230px) {
     #header-content {
         display: block !important;
@@ -91,8 +156,4 @@ h1 {
         display: block;
     }
     
-}
-
-@media screen and (min-width: 1231px) {
-
 }
