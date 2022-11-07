@@ -4,21 +4,46 @@
     font-family: Poppins;
 }
 
-#signup_btn {
-    background-color: #2acfcf;
-    border-radius: 20px;
-    color: #fff;
-    padding-left: 20px;
-    padding-right: 20px;
-}
 
 #nav-menu {
     display: flex;
     justify-content: space-between;
 }
 
+#signup_btn {
+    background-color: #2acfcf;
+    border-radius: 20px;
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .collapse:not(.show) {
     display: none !important;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+.gs {
+    background-color: #2acfcf;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#header-content {
+    padding: 20px;
+}
+
+#header-content h1 {
+    max-width: 500px;
+}
+
+#header-content p {
+    max-width: 570px;
 }
 
 
@@ -49,5 +74,25 @@
         margin: auto;
         padding-top: 2vh;
     }
+
+    #header-content {
+        text-align: center;
+    }
 }
 
+@media screen and (max-width: 1230px) {
+    #header-content {
+        display: block !important;
+    }
+
+    #header-content img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    
+}
+
+@media screen and (min-width: 1231px) {
+
+}
