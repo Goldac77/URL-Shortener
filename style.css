@@ -60,7 +60,7 @@ h1 {
 }
 
 #main, #stats {
-    background-color: #bfbfbf;
+    background-color: #f0f1f6;
     margin: auto;
 }
 
@@ -100,6 +100,40 @@ h1 {
     background-color: #2acfcf;
     color: #fff;
     width: 15%;
+}
+
+#stats p {
+    color: #a1a0a0; 
+}
+
+.stats_content {
+    width: 20%;
+    margin: 0 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 60px 20px 0 20px;
+    text-align: left;
+    position: relative;
+}
+
+.stats_content_img {
+    border-radius: 50%;
+    width: min-content;
+    background-color: #232127;
+    position: absolute;
+    top: -30px;
+}
+
+.stats_content img {
+    padding: 15px;
+}
+
+#stats_2 {
+    top: 50px;
+}
+
+#stats_3 {
+    top: 100px;
 }
 
 
@@ -158,6 +192,21 @@ h1 {
        margin-left: 20% !important;
        margin-right: auto !important;
     }
+
+    #stats_main {
+        display: block !important;
+    }
+
+    .stats_content {
+        margin: auto;
+        width: 80vw;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .stats_content_img {
+        left: 32vw;
+    }
 }
 
 /*Making header responsive*/
@@ -172,4 +221,15 @@ h1 {
         display: block;
     }
     
+}
+
+/*Making Stats section responsive*/
+@media screen and (min-width: 578px) and (max-width: 1020px) {
+    .stats_content {
+        margin: auto;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 50vw;
+        padding-bottom: 10px;
+    }
 }
