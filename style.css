@@ -136,6 +136,19 @@ h1 {
     top: 100px;
 }
 
+#extra {
+    color: #fff;
+    background-image: url('./images/bg-boost-desktop.svg');
+    background-size: cover;
+    background-color: #3b3054;
+    text-align: center;
+    padding: 60px 0;
+}
+
+#extra h1 {
+    margin-bottom: 30px;
+}
+
 
 /*Mobile Viewport Styling*/
 @media screen and (max-width: 576px) {
