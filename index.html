@@ -79,8 +79,11 @@
 
     <main id="main">
         <form action="" class="form">
-            <input type="text" name="" id="input" class="form-control" placeholder="Shorten a link here...">
-            <button type="submit" id="button" class="btn">Shorten It!</button>
+            <div id="form-main">
+                <input type="text" name="" id="input" class="form-control" placeholder="Shorten a link here..." required>
+                <button type="submit" id="button" class="btn">Shorten It!</button>
+            </div>
+            <span id="warning" class="ms-4">Please enter a valid URL</span>
         </form>
 
         <div id="display">
