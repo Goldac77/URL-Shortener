@@ -10,19 +10,20 @@ errorMessage.style.display = "none" //hide the error message
 
 if(sessionStorage.getItem("shortLink") || sessionStorage.getItem("fullLink")) {
     JSON.parse(sessionStorage.getItem("shortLink")).map((item, index) => {
-        display.innerHTML += `
-        <div class="display_content">
-            <div id="url" class="ps-5">
-                <p><span>Full Link:</span> ${JSON.parse(sessionStorage.getItem("fullLink"))[index]}</p>
-            </div>
+        displayElements(JSON.parse(sessionStorage.getItem("fullLink"))[index], item, index)
 
-            <div id="shortened" class="d-flex ps-5">
-                <p><span>Shortened Link:</span> ${item}</p>
-                <button class="btn ms-5">Copy</button>
-            </div>
-        </div>
-        `
+        let copyBtn = document.querySelector(`#copyBtn${index}`)
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard
+            .writeText(`${item}`)
+            .then(() => {
+                copyBtn.innerHTML = "Copied"
+                copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
+            })
+        })
+
     })
+
 }
 
 button.addEventListener("click", (event) => {
@@ -34,28 +35,45 @@ button.addEventListener("click", (event) => {
         fullLink.push(input.value)
 
         display.innerHTML = "" //refresh the display
+
         //store the links in local storage
         sessionStorage.setItem("shortLink", JSON.stringify(shortLink))
         sessionStorage.setItem("fullLink", JSON.stringify(fullLink))
+        
 
         shortLink.forEach((item, index) => {
-            display.innerHTML += `
-            <div class="display_content">
-                <div id="url" class="ps-5">
-                    <p><span>Full Link:</span> ${fullLink[index]}</p>
-                </div>
+            displayElements(fullLink[index], item, index)
 
-                <div id="shortened" class="d-flex ps-5">
-                    <p><span>Shortened Link:</span> ${item}</p>
-                    <button class="btn ms-5">Copy</button>
-                </div>
-            </div>
-            `
+            /**MY SOLUTION */
+            let copyBtn = document.querySelector(`#copyBtn${index}`)
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard
+                .writeText(`${item}`)
+                .then(() => {
+                    copyBtn.innerHTML = "Copied"
+                    copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
+                })
+            })
         })
+
     })
-    .catch(error => {
-        errorMessage.style.display = "block"
+    .catch(() => {
+        errorMessage.style.display = "block" //display error message
     })
 })
 
-console.log(shortLink)
+//Function for displaying the contents
+function displayElements(x,y,z) {
+    display.innerHTML += `
+    <div class="display_content">
+        <div id="url" class="ps-5">
+            <p><span>Full Link:</span> ${x}</p>
+        </div>
+
+        <div id="shortened" class="d-flex ps-5">
+            <p><span>Shortened Link:</span> ${y}</p>
+            <button id="copyBtn${z}" class="btn ms-5">Copy</button>
+        </div>
+    </div>
+    `
+}
