@@ -220,6 +220,10 @@ footer i{
         padding: 20px;
     }
 
+    #form-main {
+        display: block !important;
+    }
+
     #input {
         width: 100%;
     }
