@@ -44,7 +44,6 @@ button.addEventListener("click", (event) => {
         shortLink.forEach((item, index) => {
             displayElements(fullLink[index], item, index)
 
-            /**MY SOLUTION */
             let copyBtn = document.querySelector(`#copyBtn${index}`)
             copyBtn.addEventListener('click', () => {
                 navigator.clipboard
