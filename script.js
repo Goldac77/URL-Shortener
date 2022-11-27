@@ -9,11 +9,29 @@ var fullLink = []
 errorMessage.style.display = "none" //hide the error message
 
 if(sessionStorage.getItem("shortLink") || sessionStorage.getItem("fullLink")) {
-    JSON.parse(sessionStorage.getItem("shortLink")).map((item, index) => {
-        displayElements(JSON.parse(sessionStorage.getItem("fullLink"))[index], item, index)
+    shortLink = JSON.parse(sessionStorage.getItem("shortLink"))
+    fullLink = JSON.parse(sessionStorage.getItem("fullLink"))
 
-        let copyBtn = document.querySelector(`#copyBtn${index}`)
-        copyBtn.addEventListener('click', () => {
+        // shortLink = JSON.parse(sessionStorage.getItem('shortLink'))
+
+        // let copyBtn = document.querySelector(`#copyBtn${index}`)
+        // copyBtn.addEventListener('click', () => {
+        //     navigator.clipboard
+        //     .writeText(`${item}`)
+        //     .then(() => {
+        //         copyBtn.innerHTML = "Copied"
+        //         copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
+        //     })
+        // })
+    
+
+    shortLink.forEach((item, index) => {
+        displayElements(fullLink[index], item, index)
+   
+        /**MY SOLUTION */
+        let btn = document.querySelectorAll(`.copy-button`)
+        btn.forEach(copyBtn => {
+            copyBtn.addEventListener('click', () => {
             navigator.clipboard
             .writeText(`${item}`)
             .then(() => {
@@ -21,7 +39,7 @@ if(sessionStorage.getItem("shortLink") || sessionStorage.getItem("fullLink")) {
                 copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
             })
         })
-
+    })
     })
 
 }
@@ -33,6 +51,11 @@ button.addEventListener("click", (event) => {
     .then(data => {
         shortLink.push(data.result.full_short_link)
         fullLink.push(input.value)
+    })
+    .catch((err) => {
+        console.log(err)
+        errorMessage.style.display = "block" //display error message
+    }) // I moved the .then scope, it seeems to have been what was causing the issue 
 
         display.innerHTML = "" //refresh the display
 
@@ -43,9 +66,12 @@ button.addEventListener("click", (event) => {
 
         shortLink.forEach((item, index) => {
             displayElements(fullLink[index], item, index)
-
-            let copyBtn = document.querySelector(`#copyBtn${index}`)
-            copyBtn.addEventListener('click', () => {
+       
+            /**MY SOLUTION */
+            // I used a querySelectorALl instead to select all the buttons at once instead of using the id
+            let btn = document.querySelectorAll(`.copy-button`)
+            btn.forEach(copyBtn => {
+                copyBtn.addEventListener('click', () => {
                 navigator.clipboard
                 .writeText(`${item}`)
                 .then(() => {
@@ -54,13 +80,22 @@ button.addEventListener("click", (event) => {
                 })
             })
         })
-
     })
-    .catch(() => {
-        errorMessage.style.display = "block" //display error message
-    })
+    
+    
 })
 
+// shortLink.forEach((item, index) => {
+// let copyBtn = document.querySelector(`#copyBtn${index}`)
+//             copyBtn.addEventListener('click', () => {
+//                 navigator.clipboard
+//                 .writeText(`${item}`)
+//                 .then(() => {
+//                     copyBtn.innerHTML = "Copied"
+//                     copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
+//                 })
+//             })
+//         })
 //Function for displaying the contents
 function displayElements(x,y,z) {
     display.innerHTML += `
@@ -71,7 +106,7 @@ function displayElements(x,y,z) {
 
         <div id="shortened" class="d-flex ps-5">
             <p><span>Shortened Link:</span> ${y}</p>
-            <button id="copyBtn${z}" class="btn ms-5">Copy</button>
+            <button id="copyBtn${z}" class="btn ms-5 copy-button">Copy</button>
         </div>
     </div>
     `
