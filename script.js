@@ -11,18 +11,6 @@ errorMessage.style.display = "none" //hide the error message
 if(sessionStorage.getItem("shortLink") || sessionStorage.getItem("fullLink")) {
     shortLink = JSON.parse(sessionStorage.getItem("shortLink"))
     fullLink = JSON.parse(sessionStorage.getItem("fullLink"))
-
-        // shortLink = JSON.parse(sessionStorage.getItem('shortLink'))
-
-        // let copyBtn = document.querySelector(`#copyBtn${index}`)
-        // copyBtn.addEventListener('click', () => {
-        //     navigator.clipboard
-        //     .writeText(`${item}`)
-        //     .then(() => {
-        //         copyBtn.innerHTML = "Copied"
-        //         copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
-        //     })
-        // })
     
 
     shortLink.forEach((item, index) => {
@@ -87,17 +75,7 @@ button.addEventListener("click", (event) => {
     
 })
 
-// shortLink.forEach((item, index) => {
-// let copyBtn = document.querySelector(`#copyBtn${index}`)
-//             copyBtn.addEventListener('click', () => {
-//                 navigator.clipboard
-//                 .writeText(`${item}`)
-//                 .then(() => {
-//                     copyBtn.innerHTML = "Copied"
-//                     copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
-//                 })
-//             })
-//         })
+
 //Function for displaying the contents
 function displayElements(x,y,z) {
     display.innerHTML += `
