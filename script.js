@@ -28,12 +28,13 @@ if(sessionStorage.getItem("shortLink") || sessionStorage.getItem("fullLink")) {
     shortLink.forEach((item, index) => {
         displayElements(fullLink[index], item, index)
    
-        /**MY SOLUTION */
+        
         let btn = document.querySelectorAll(`.copy-button`)
-        btn.forEach(copyBtn => {
+        btn.forEach((copyBtn, index) => {
             copyBtn.addEventListener('click', () => {
             navigator.clipboard
-            .writeText(`${item}`)
+            //copies the corresponding index of shortLink element
+            .writeText(shortLink[index])
             .then(() => {
                 copyBtn.innerHTML = "Copied"
                 copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
@@ -70,10 +71,11 @@ button.addEventListener("click", (event) => {
             /**MY SOLUTION */
             // I used a querySelectorALl instead to select all the buttons at once instead of using the id
             let btn = document.querySelectorAll(`.copy-button`)
-            btn.forEach(copyBtn => {
+            btn.forEach((copyBtn, index) => {
                 copyBtn.addEventListener('click', () => {
                 navigator.clipboard
-                .writeText(`${item}`)
+                //copies the corresponding index of shortLink element
+                .writeText(shortLink[index])
                 .then(() => {
                     copyBtn.innerHTML = "Copied"
                     copyBtn.style.backgroundColor = 'hsl(255, 11%, 22%)'
