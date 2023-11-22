@@ -61,5 +61,5 @@ I believe I need to work on the knowledge in manipulating dynamically rendered D
 - Nicholas Amemazior
 - Frontend Mentor - [@Goldac77](https://www.frontendmentor.io/profile/Goldac77)
 
-##Important Update
+## Important Update
 The Shortly API is no longer working, hence this web application cannot shorten URLs. It will be updated at a later time
